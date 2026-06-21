@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ued体育 — 资料整理与信息索引平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f8f6f1;
+            color: #1e1e1e;
+            line-height: 1.6;
+        }
+        /* ---- hero ---- */
+        .hero {
+            background-color: #17181a;
+            background-image: radial-gradient(circle at 20% 40%, #2a2d33 0%, #0e0f10 100%);
+            color: #eae8e0;
+            padding: 5rem 1.5rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(to top, #f8f6f1, transparent);
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 350;
+            letter-spacing: 2px;
+            margin-bottom: 0.8rem;
+        }
+        .hero h1 span {
+            font-weight: 550;
+            color: #e8b43c;
+        }
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 1.2rem;
+            font-size: 1.15rem;
+            color: #bbb7ae;
+        }
+        .hero .tagline {
+            display: inline-block;
+            background: #2f3137;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #ccc8bd;
+            border: 1px solid #4a4c52;
+        }
+        /* ---- section common ---- */
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3.5rem 1.5rem;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 450;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #d6d2c9;
+            padding-bottom: 0.6rem;
+            color: #1e1c18;
+        }
+        .section-title small {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #6b675e;
+            margin-left: 0.5rem;
+        }
+        /* ---- 优势区 卡片 ---- */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.04);
+            transition: all 0.2s;
+            border: 1px solid #e7e3db;
+        }
+        .card:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+            transform: translateY(-2px);
+        }
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 480;
+            margin-bottom: 0.8rem;
+            color: #1e1c18;
+        }
+        .card p {
+            color: #3f3d38;
+            font-size: 0.95rem;
+        }
+        .card .badge {
+            display: inline-block;
+            background: #ede9e0;
+            color: #2f2c25;
+            font-size: 0.75rem;
+            border-radius: 30px;
+            padding: 0.2rem 0.9rem;
+            margin-top: 1rem;
+        }
+        /* ---- 说明区 ---- */
+        .explain-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+        .explain-text {
+            flex: 2 1 300px;
+        }
+        .explain-text p {
+            margin-bottom: 1.2rem;
+            color: #2d2b26;
+        }
+        .explain-text a {
+            color: #b8872a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+        .explain-text a:hover {
+            border-bottom-color: #b8872a;
+        }
+        .explain-note {
+            flex: 1 1 200px;
+            background: #f0ede6;
+            border-radius: 24px;
+            padding: 1.6rem 1.5rem;
+            border-left: 4px solid #d6a741;
+        }
+        .explain-note h4 {
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #1f1d18;
+        }
+        .explain-note p {
+            font-size: 0.9rem;
+            color: #3f3c34;
+        }
+        /* ---- FAQ 摘要 ---- */
+        .faq-list {
+            list-style: none;
+        }
+        .faq-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #ddd9cf;
+        }
+        .faq-list li:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 520;
+            font-size: 1.05rem;
+            color: #1f1d19;
+            margin-bottom: 0.3rem;
+        }
+        .faq-a {
+            color: #3f3c34;
+            font-size: 0.95rem;
+            padding-left: 0.2rem;
+        }
+        /* ---- footer / 底部链接 ---- */
+        .footer-area {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 3rem;
+            border-top: 1px solid #d6d2c9;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            color: #4d4940;
+            font-size: 0.9rem;
+        }
+        .footer-area a {
+            color: #b8872a;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border 0.15s;
+        }
+        .footer-area a:hover {
+            border-bottom-color: #b8872a;
+        }
+        .footer-area .copy {
+            opacity: 0.7;
+        }
+        .footer-links {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .section {
+                padding: 2.5rem 1.2rem;
+            }
+            .footer-area {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- hero -->
+    <section class="hero">
+        <h1>信息 · <span>ued体育</span></h1>
+        <p>从资料整理到索引导航，帮你把体育信息归置得井井有条。<br>不追求花哨，只服务真实的查找习惯。</p>
+        <span class="tagline">📋 日常更新 · 分类归档</span>
+    </section>
+
+    <!-- 优势区 -->
+    <section class="section">
+        <div class="section-title">为什么用它来整理<span class="badge" style="background:#d1ccc1;padding:0.15rem 1rem;">而非其他</span></div>
+        <div class="grid-3">
+            <div class="card">
+                <h3>📂 目录结构清晰</h3>
+                <p>按照赛事、队伍、日期、数据维度拆分，不需要在杂乱标签里翻找。每个索引都附带简要说明和更新日志。</p>
+                <span class="badge">层次索引</span>
+            </div>
+            <div class="card">
+                <h3>🔎 关键词直达</h3>
+                <p>支持通过常用名称、缩写、年份快速定位到具体资料页，省去二次筛选的时间。键盘操作友好。</p>
+                <span class="badge">快速定位</span>
+            </div>
+            <div class="card">
+                <h3>📎 多源对照</h3>
+                <p>同一信息项下聚合来自不同公开来源的链接，方便交叉验证。不代替原文，只做整理与指引。</p>
+                <span class="badge">交叉索引</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 说明区 + 侧记 -->
+    <section class="section">
+        <div class="section-title">我们理解的「索引」<small>不止是网址列表</small></div>
+        <div class="explain-wrap">
+            <div class="explain-text">
+                <p>大部分资料站要么太零散，要么太封闭。<strong>ued体育</strong> 尝试在中间找一个平衡：把散落在各处的比赛记录、规则变动、球队沿革整理成可翻阅的档案卡片，并且持续补充来源备注。</p>
+                <p>比如你想回顾某个赛季的积分变化、或者查找某项运动规则的最新修订版本，<a href="https://portal-ued.com">ued体育</a> 能帮你节省自己挨个搜索的时间——我们提前做了筛选和归类，但绝不替代原始信息。每条索引都保留原文出处和采集日期。</p>
+                <p>适合日常快速查阅、资料收集、以及写稿前的线索梳理。没有广告弹窗，没有付费墙，就是一个干净的信息中转站。</p>
+            </div>
+            <div class="explain-note">
+                <h4>📌 使用提示</h4>
+                <p>首页侧重「热门资料库」，如果你需要特定年份或冷门项目的索引，可以使用站内搜索（支持模糊匹配）。资料库每周迭代，旧索引也会标注归档状态。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section class="section">
+        <div class="section-title">常见疑问 <small>FAQ 摘要</small></div>
+        <ul class="faq-list">
+            <li>
+                <div class="faq-q">❓ 资料更新频率是固定的吗？</div>
+                <div class="faq-a">目前没有严格的时间表，但主要赛事周期内会同步更新索引。非赛季期也会做历史资料的复查和补充。</div>
+            </li>
+            <li>
+                <div class="faq-q">❓ 我可以提交自己整理的资料链接吗？</div>
+                <div class="faq-a">暂时不开放直接提交，但你可以通过站内反馈渠道推荐有价值的公开来源，我们会评估后收录。</div>
+            </li>
+            <li>
+                <div class="faq-q">❓ 移动端浏览体验怎么样？</div>
+                <div class="faq-a">框架适配了手机屏幕，卡片和目录会自适应。部分复杂表格建议横屏查看。</div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- 底部链接 -->
+    <footer class="footer-area">
+        <div class="copy">
+            © 索引维护 · 内容仅供参考
+        </div>
+        <div class="footer-links">
+            <a href="https://portal-ued.com">ued体育</a>
+            <span style="opacity:0.4;">|</span>
+            <a href="#">关于索引规范</a>
+            <a href="#">反馈</a>
+        </div>
+    </footer>
+
+</body>
+</html>
